@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Gps"
+             x:Class="Gps.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="CALCULO DE DISTANCIA ENTRE DOS PUNTOS" 
+               HorizontalOptions="Center" 
+               FontSize="Large"
+               BackgroundColor="LightBlue"
+               />
+        <Label Text=""/>
+        <Label Text="ESTAS SON TUS COORDENADAS ACTUALMENTE" 
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="Large"
+               BackgroundColor="LightYellow"/>
+        <Label Text=""/>
+        <Label x:Name="Latitud" Text="Latitud" FontSize="Large" HorizontalOptions="Center"/>
+        <Label x:Name="Longitud" Text="Longitud" FontSize="Large" HorizontalOptions="Center"/>
+        <Label Text=""/>
+        <Button Text="Localizame!" Clicked="Button_Clicked" FontSize="Large"/>
+        <Label Text=""/>
+        <Entry Placeholder="INGRESA LATITUD PUNTO 2" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Center"
+               x:Name="inp1"
+               FontSize="Large"
+               />
+        <Entry Placeholder="INGRESA LONGITUD PUNTO 2" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Center" 
+               x:Name="inp2"
+               FontSize="Large"
+               />
+        <Label Text=""/>
+        <Button Text="Calcular!" FontSize="Large" Clicked="Button_Clicked_1"/>
+        <Label Text=""/>
+        <Label Text="La distancia entre los dos puntos es:" 
+               FontSize="Large"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               BackgroundColor="LightBlue"/>
+        <Label x:Name="labRes" Text="RESULTADO" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large"/>
+    </StackLayout>
+
+</ContentPage>
