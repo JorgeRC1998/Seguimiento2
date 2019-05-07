@@ -43,7 +43,7 @@ namespace Gps
         {
             Punto objPunto = new Punto();
             int x = 0;
-            var client = new RestClient($"http://6f1cda57.ngrok.io/API/index.php/select");
+            var client = new RestClient($"http://0cb1545d.ngrok.io/API/index.php/select");
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -79,9 +79,16 @@ namespace Gps
         {
             double latitud = x1;
             double longitud = y1;
+            DateTime fecha = DateTime.Now;
+            string año = fecha.Year.ToString();
+            string mes = fecha.Month.ToString();
+            string dia = fecha.Day.ToString();
+            decimal hora = (fecha.Hour - 1);
+            string minuto = fecha.Minute.ToString();
+            string segundo = fecha.Second.ToString();
+            string consFecha = ($"{año}-{mes}-{dia}  {hora}:{minuto}:{segundo}");
 
-
-            //var client = new RestClient("http://6f1cda57.ngrok.io/API/index.php/insertar");
+            //var client = new RestClient("http://0cb1545d.ngrok.io/API/index.php/insertar");
             //var request = new RestRequest(Method.POST);
             //request.AddParameter("undefined", "{\r\n\"LONGITUD\": \"{longitud}\",\r\n\"latitud\": \"1.0\",\r\n\"FECHA\": \"2018-07-20 09:55:00\"\r\n}", ParameterType.RequestBody);
             //IRestResponse response = client.Execute(request);
@@ -91,12 +98,12 @@ namespace Gps
             {
                 {"LONGITUD", $"{longitud}" },
                 {"LATITUD", $"{latitud}" },
-                {"FECHA", "2018-07-20 09:55:00" }
+                {"FECHA", $"{consFecha}" }
             };
 
             var content = new FormUrlEncodedContent(values);
 
-            var response = await client.PostAsync("http://6f1cda57.ngrok.io/API/index.php/insertar", content);
+            var response = await client.PostAsync("http://0cb1545d.ngrok.io/API/index.php/insertar", content);
 
             var responseString = await response.Content.ReadAsStringAsync();
         }
